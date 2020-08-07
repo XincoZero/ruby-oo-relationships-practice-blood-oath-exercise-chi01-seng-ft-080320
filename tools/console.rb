@@ -12,6 +12,7 @@ end
 
 y = Followers.new("george",63,"life fast die young", "suicide squad")
 x = Cults.new("suicide squad", "detroit", 1900, "kill everything")
-
+z = BloodOaths.new("george","suicide squad","04/24/98")
+# name,cult,date_of_initiation)
 binding.pry 
 0

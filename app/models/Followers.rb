@@ -15,10 +15,11 @@ class Followers
         @life_motto = life_motto
         @cults = cults
         @@all << self
+
     end
 
-    def join_cult
-        self.cults
+    def join_cult(cult)
+        
     end
 
     def self.of_a_certain_age(age)
@@ -28,7 +29,7 @@ class Followers
 
 end #end of followers
 
-y = Followers.new("george",63,"life fast die young", "suicide squad")
+# y = Followers.new("george",63,"life fast die young", "suicide squad")
 
-binding.pry
-0
+# binding.pry
+# 0

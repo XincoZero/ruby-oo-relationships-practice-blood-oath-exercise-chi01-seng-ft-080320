@@ -10,5 +10,8 @@ end
 
 
 
-x = Cults.new("suicide squad","detroit",1870,"You're never to young to die")
 y = Followers.new("george",63,"life fast die young", "suicide squad")
+x = Cults.new("suicide squad", "detroit", 1900, "kill everything")
+
+binding.pry 
+0

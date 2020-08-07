@@ -1,8 +1,11 @@
-require_relative '../config/environment.rb'
+require 'pry' 
+require_relative "Followers.rb"
+# require_relative '../config/environment.rb'
 
-def reload
-  load 'config/environment.rb'
-end
+
+# def reload
+#   load 'config/environment.rb'
+# end
 
 puts "Mwahahaha!" # just in case pry is buggy and exits
 
@@ -40,7 +43,8 @@ class Cults
 end
 
 
-x = Cult.new("suicide squad","detroit",1870,"You're never to young to die")
+x = Cults.new("suicide squad","detroit",1870,"You're never to young to die")
+y = Followers.new("george",63,"life fast die young", "suicide squad")
 
 binding.pry
 0

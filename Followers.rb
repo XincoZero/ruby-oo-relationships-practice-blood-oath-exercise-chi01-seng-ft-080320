@@ -1,3 +1,4 @@
+require 'pry'
 class Followers 
     attr_accessor
     attr_reader :name, :age, :life_motto, :cults
@@ -13,8 +14,9 @@ class Followers
         @name = name
         @age = age
         @life_motto = life_motto
-        Cults.name = cults
+        @cults = cults
         @@all << self
+
     end
 
     def join_cult
@@ -29,5 +31,12 @@ class Followers
 end #end of followers
 
 
-binding.pry
+
+y = Followers.new("george",63,"life fast die young", "televangelists")
+
+
+
+binding.pry 
+0 
+
 

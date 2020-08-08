@@ -1,6 +1,6 @@
-class Followers 
+class Follower
     attr_accessor
-    attr_reader :name, :age, :life_motto, :cults
+    attr_reader :name, :age, :life_motto
 
     @@all = []
 
@@ -8,28 +8,36 @@ class Followers
         @@all
     end
 
-
-    def initialize(name,age,life_motto,cults)
+    def initialize(name,age,life_motto)
         @name = name
         @age = age
         @life_motto = life_motto
-        @cults = cults
-        @@all << self
 
+        @@all << self
+    end
+
+    def cults
+        cults_im_in = BloodOath.all.filter do |cult_lister|
+            cult_lister.name.name == self.name
+        end
+        just_cults = cults_im_in.map do |cult_map|
+            cult_map.cult
+        end
+        just_cults
     end
 
     def join_cult(cult)
-        
+        BloodOath.new(self,cult,"2020-02-25")
     end
 
-    def self.of_a_certain_age(age)
-
+    def self.of_a_certain_age(num)
+        follower_map = Follower.all.map do |finder|
+            if finder.age >= num
+                finder
+            end
+        end
+        follower_map.compact
     end
 
 
-end #end of followers
-
-# y = Followers.new("george",63,"life fast die young", "suicide squad")
-
-# binding.pry
-# 0
+end #end of follower class

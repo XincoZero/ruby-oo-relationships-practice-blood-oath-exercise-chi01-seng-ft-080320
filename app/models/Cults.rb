@@ -1,53 +1,50 @@
-require 'pry'
-class Cults
+class Cult
     attr_accessor
     attr_reader :name, :location, :founding_year, :slogan
 
     @@all = []
-    # @@cult_members = []
 
     def self.all
-      @@all
+        @@all
     end
 
-    # def cult_members
-    #     @@cult_members
-    # end 
 
-    def initialize(name, location, founding_year, slogan)
+    def initialize(name,location,founding_year,slogan)
         @name = name
         @location = location
         @founding_year = founding_year
         @slogan = slogan
+        
         @@all << self
     end
 
-    def cult_population
-
-    end
-
-    def self.find_by_name(name)
-    end
-
-    def self.find_by_location(name)
-    end
-
-    def self.find_by_founding_year(name)
-    end
-
     def recruit_follower(follower)
-        Followers.all.find_all do |finder|
-            finder.name == follower
-            # cult_members << follower 
-            # binding.pry 
-            # 0
+        BloodOath.new(follower,self,"2005/03/23")
+    end
+
+    def cult_population
+        members = BloodOath.all.filter do |oath_instance|
+        oath_instance.cult.name == self.name
         end
-    end 
+        members.length
+    end
 
+    def self.find_by_name(cult)
+        Cult.all.find do |cult_instance|
+            cult_instance.name == cult
+        end
+    end
 
-end
+    def self.find_by_location(location)
+        Cult.all.filter do |location_instance|
+            location_instance.location == location
+        end
+    end
 
-# y = Followers.new("george",63,"life fast die young", "suicide squad")
-# x = Cults.new("suicide squad", "detroit", 1900, "kill everything")
-# binding.pry
-# 0 
+    def self.find_by_founding_year(num)
+        Cult.all.filter do |finder|
+            finder.founding_year == num
+        end
+    end
+
+end # end of cult class

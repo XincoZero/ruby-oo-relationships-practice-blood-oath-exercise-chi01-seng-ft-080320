@@ -1,14 +1,20 @@
-class BloodOaths
+class BloodOath
     attr_accessor
-    attr_reader :name, :cult, :date_of_initiation
+    attr_reader :name, :cult, :initiation_date
 
-    def intitialize(name,cult,date_of_initiation)
+    @@all = []
+
+    def self.all
+        @@all
+    end
+
+    def initialize(name,cult,initiation_date)
         @name = name
         @cult = cult
-        @date_of_initiation = date_of_initiation
+        @initiation_date = initiation_date
+
+        @@all << self
     end
 
 
-end
-
-
+end #end of bloodoath class
